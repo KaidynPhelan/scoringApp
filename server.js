@@ -22,7 +22,12 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 });
 
+
 // Connecting routes to the server
+const routes = require('./routes');
+app.use('/', routes);
+
+
 
 
 app.listen(port, () => {
