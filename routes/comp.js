@@ -9,6 +9,7 @@ router.route('/add').post((req, res) => {
     const targets = req.body.targets;
     const status = req.body.status;
     const shooters = req.body.shooters;
+    const scores = req.body.scores;
 
     const newComp = new Comp({
         club,
@@ -16,6 +17,7 @@ router.route('/add').post((req, res) => {
         targets,
         status,
         shooters,
+        scores,
     });
 
     newComp.save()
@@ -54,6 +56,7 @@ router.route('/update/:id').post((req, res) => {
             comps.targets = req.body.targets;
             comps.status = req.body.status;
             comps.shooters = req.body.shooters;
+            comps.scores = req.body.shooters;
 
             comps.save()
                 .then(() => res.json('Competition Details Updated'))

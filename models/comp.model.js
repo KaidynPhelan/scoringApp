@@ -7,6 +7,7 @@ const compSchema = new Schema({
     targets: {type: Number, required: true},
     status: {type: String, required: true},
     shooters: {type: [mongoose.Types.ObjectId], ref: "Shooter", required: true},
+    scores: {type: [[Number]], required: false},
 });
 
 const Comp = mongoose.model('Comp' , compSchema);
