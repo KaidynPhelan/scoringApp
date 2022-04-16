@@ -7,12 +7,14 @@ router.route('/add').post((req, res) => {
     const club = req.body.club;
     const type = req.body.type;
     const targets = req.body.targets;
+    const status = req.body.status;
     const shooters = req.body.shooters;
 
     const newComp = new Comp({
         club,
         type,
         targets,
+        status,
         shooters,
     });
 
@@ -50,6 +52,7 @@ router.route('/update/:id').post((req, res) => {
             comps.club = req.body.club;
             comps.type = req.body.type;
             comps.targets = req.body.targets;
+            comps.status = req.body.status;
             comps.shooters = req.body.shooters;
 
             comps.save()
