@@ -12,10 +12,11 @@ router.route('/').get((req,res) => {
 
 //Adding a new shooter
 router.route('/add').post((req, res) => {
-   const fname = req.body.fname;
-   const lname = req.body.lname;
-   const grade = req.body.grade;
-   const homeClub = req.body.homeClub;
+    console.log(req.body);
+    const fname = req.body.fname;
+    const lname = req.body.lname;
+    const grade = req.body.grade;
+    const homeClub = req.body.homeClub;
 
     const newShooter = new Shooter({
         fname,
