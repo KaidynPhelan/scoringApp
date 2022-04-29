@@ -1,13 +1,15 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonContent, IonHeader, IonModal, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { useEffect, useState } from 'react';
 import CompListItem from '../components/CompListItem';
 import Axios from 'axios';
 import './Tab1.css';
+import AddComp from '../components/AddComp';
 
 const Tab1: React.FC = () => {
 
   const [comps, setComps] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [compModalOpen, setCompModalOpen] = useState(false);
 
   // Load the data when the component mounts
   useEffect(() => {
@@ -38,6 +40,12 @@ const Tab1: React.FC = () => {
           {comps.map((comps, index) => (
             <CompListItem Comp = {comps} key={index}/>
           ))}
+          <IonButton onClick={() => {setCompModalOpen(true); }}>Create a Competition</IonButton>
+          <IonModal isOpen = {compModalOpen}>
+            <IonContent>
+              <AddComp close = {() => {setCompModalOpen(false); LoadCompetitions(); }} />
+            </IonContent>
+          </IonModal>
         </IonContent>
         :
         <div>Loading...</div>
