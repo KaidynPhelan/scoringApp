@@ -2,7 +2,7 @@ import { IonItem, IonList, IonLabel, IonInput, IonButton, IonSelect, IonSelectOp
 import axios from 'axios';
 import React from 'react';
 
-function AddShooter () {
+function AddShooter ({ close }) {
 
     const [formValue, setformValue] = React.useState({
         fname: '',
@@ -11,7 +11,7 @@ function AddShooter () {
         homeClub: ''
     });
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         const ShooterFormData = new FormData();
@@ -21,12 +21,14 @@ function AddShooter () {
         ShooterFormData.append("homeClub", formValue.homeClub)
                 
         try {
-            axios({
+            await axios({
                 method: "POST",
                 url: "/shooters/add",
                 // this was the problem, need to change form data to object.
                 data: Object.fromEntries(ShooterFormData)
             });
+            
+            close();
         } catch(error){
             console.log(error)
         }

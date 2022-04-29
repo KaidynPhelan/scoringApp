@@ -10,6 +10,7 @@ const Tab2: React.FC = () => {
 
   const [shooters, setShooters] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [shooterModalOpen, setShooterModalOpen] = useState(false);
 
   useEffect(() => {
     LoadShooters();
@@ -25,9 +26,6 @@ const Tab2: React.FC = () => {
     }
   }
 
-
-
-
   return (
     <IonPage>
       <IonHeader>
@@ -39,10 +37,10 @@ const Tab2: React.FC = () => {
         {shooters.map((shooters, index) => (
           <ShooterListItem Shooter = {shooters} key = {index} />
         ))}
-        <IonButton id="trigger-button">Add Shooter</IonButton>
-        <IonModal trigger='trigger-button'>
+        <IonButton onClick={() => { setShooterModalOpen(true); }}>Add Shooter</IonButton>
+        <IonModal isOpen={shooterModalOpen}>
           <IonContent>
-            <AddShooter/>
+            <AddShooter close={() => { setShooterModalOpen(false); LoadShooters(); }}/>
           </IonContent>
         </IonModal>
 
