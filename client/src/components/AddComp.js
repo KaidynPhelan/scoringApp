@@ -22,8 +22,6 @@ function AddComp ({ close }) {
       }
 
 
-
-
     const [formValue, setformValue] = React.useState({
         club: '',
         type: '',

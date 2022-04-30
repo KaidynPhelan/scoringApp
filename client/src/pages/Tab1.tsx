@@ -40,6 +40,7 @@ const Tab1: React.FC = () => {
           {comps.map((comps, index) => (
             <CompListItem Comp = {comps} key={index}/>
           ))}
+          <br></br>
           <IonButton onClick={() => {setCompModalOpen(true); }}>Create a Competition</IonButton>
           <IonModal isOpen = {compModalOpen} backdropDismiss = {false} >
             <IonContent>
