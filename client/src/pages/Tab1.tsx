@@ -44,7 +44,7 @@ const Tab1: React.FC = () => {
           <IonModal isOpen = {compModalOpen} backdropDismiss = {false} >
             <IonContent>
               <AddComp close = {() => {setCompModalOpen(false); LoadCompetitions(); }} />
-              <IonButton onClick={() => {setCompModalOpen(false); }}>Close</IonButton>
+              <IonButton onClick={() => {setCompModalOpen(false); }}>Cancel</IonButton>
             </IonContent>
           </IonModal>
         </IonContent>

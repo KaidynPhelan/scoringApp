@@ -35,13 +35,14 @@ const Tab2: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen>
         {shooters.map((shooters, index) => (
-          <ShooterListItem Shooter = {shooters} key = {index} />
+          <ShooterListItem Shooter = {shooters} key = {index} LoadShooters = {LoadShooters} />
+
         ))}
         <IonButton onClick={() => { setShooterModalOpen(true); }}>Add Shooter</IonButton>
         <IonModal isOpen={shooterModalOpen} backdropDismiss = {false} >
           <IonContent>
             <AddShooter close={() => { setShooterModalOpen(false); LoadShooters(); }}/>
-            <IonButton onClick={() => {setShooterModalOpen(false); }}>Close</IonButton>
+            <IonButton onClick={() => {setShooterModalOpen(false); }}>Cancel</IonButton>
           </IonContent>
         </IonModal>
 

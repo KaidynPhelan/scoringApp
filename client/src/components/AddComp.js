@@ -71,22 +71,36 @@ function AddComp ({ close }) {
                 <form onSubmit={handleSubmit}>
                     <IonList>
                         <IonItem>
-                            <IonLabel position='stacked'>Gun CLub</IonLabel>
+                            <IonLabel position='stacked'>Gun Club</IonLabel>
                             <IonInput placeholder='Test' value= {formValue.club} onIonChange = {handleChange} name = 'club'></IonInput>
                         </IonItem>
-                        
-
-
-
-
+                        <IonItem>
+                            <IonLabel position='stacked'>Competition Type</IonLabel>
+                            <IonSelect value={formValue.type} okText="Okay" cancelText="Dismiss" onIonChange={handleChange}  name = "type">
+                                <IonSelectOption value = "Single Barrel">Single Barrel</IonSelectOption>
+                                <IonSelectOption value = "Double Barrel">Double Barrel</IonSelectOption>
+                            </IonSelect>
+                        </IonItem>
+                        <IonItem>
+                            <IonLabel position='stacked'>Number of Targets</IonLabel>
+                            <IonInput type='number' value={formValue.targets} onIonChange = {handleChange} name = "targets"></IonInput>
+                        </IonItem>
+                        <IonItem>
+                            <IonLabel position='stacked'>Competition Status</IonLabel>
+                            <IonSelect value = {formValue.status} onIonChange = {handleChange} name = "status">
+                                <IonSelectOption value = "In-Progress">In-Progress</IonSelectOption>
+                                <IonSelectOption value = "Completed">Completed</IonSelectOption>
+                            </IonSelect>
+                        </IonItem>
                         <IonItem>
                             <IonLabel position='stacked'>Shooters Competing: </IonLabel>
                             <IonSelect multiple = {true} value = {formValue.shooters} okText = "okay" cancelText='Dismiss' onIonChange={handleChange} name = "shooters">
                                 {shooters.map((shooter, index) =>(
-                                    <IonSelectOption Shooter = {shooter} key = {index}>{shooter.fname + " " + shooter.lname}</IonSelectOption>
+                                    <IonSelectOption value={shooter._id} key = {index}>{shooter.fname + " " + shooter.lname}</IonSelectOption>
                                 ))}
                             </IonSelect>
                         </IonItem>
+                        <IonButton type='submit'>Add Competition</IonButton>
                     </IonList>
 
                 </form>

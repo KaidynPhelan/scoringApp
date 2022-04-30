@@ -4,11 +4,12 @@ let Comp = require('../models/comp.model');
 
 //Adding a new Competition
 router.route('/add').post((req, res) => {
+    console.log(req.body);
     const club = req.body.club;
     const type = req.body.type;
     const targets = req.body.targets;
     const status = req.body.status;
-    const shooters = req.body.shooters;
+    const shooters = req.body.shooters.split(',');
     const scores = req.body.scores;
 
     const newComp = new Comp({
