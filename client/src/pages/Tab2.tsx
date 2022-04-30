@@ -38,9 +38,10 @@ const Tab2: React.FC = () => {
           <ShooterListItem Shooter = {shooters} key = {index} />
         ))}
         <IonButton onClick={() => { setShooterModalOpen(true); }}>Add Shooter</IonButton>
-        <IonModal isOpen={shooterModalOpen}>
+        <IonModal isOpen={shooterModalOpen} backdropDismiss = {false} >
           <IonContent>
             <AddShooter close={() => { setShooterModalOpen(false); LoadShooters(); }}/>
+            <IonButton onClick={() => {setShooterModalOpen(false); }}>Close</IonButton>
           </IonContent>
         </IonModal>
 

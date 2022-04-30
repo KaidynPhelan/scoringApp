@@ -58,7 +58,7 @@ function AddShooter ({ close }) {
                         <IonItem>
                             <IonLabel position='stacked'>Shooters Grade {formValue.grade}</IonLabel>
                             <IonSelect defaultValue={"AA Grade"} value={formValue.grade} okText="Okay" cancelText="Dismiss" onIonChange={handleChange}  name = "grade">
-                            <IonSelectOption value = "AA Grade">AA Grade</IonSelectOption>
+                                <IonSelectOption value = "AA Grade">AA Grade</IonSelectOption>
                                 <IonSelectOption value = "A Grade">A Grade</IonSelectOption>
                                 <IonSelectOption value = "B Grade">B Grade</IonSelectOption>
                                 <IonSelectOption value = "C Grade">C Grade</IonSelectOption>

@@ -41,9 +41,10 @@ const Tab1: React.FC = () => {
             <CompListItem Comp = {comps} key={index}/>
           ))}
           <IonButton onClick={() => {setCompModalOpen(true); }}>Create a Competition</IonButton>
-          <IonModal isOpen = {compModalOpen}>
+          <IonModal isOpen = {compModalOpen} backdropDismiss = {false} >
             <IonContent>
               <AddComp close = {() => {setCompModalOpen(false); LoadCompetitions(); }} />
+              <IonButton onClick={() => {setCompModalOpen(false); }}>Close</IonButton>
             </IonContent>
           </IonModal>
         </IonContent>
