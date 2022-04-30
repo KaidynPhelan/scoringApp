@@ -38,7 +38,7 @@ const Tab1: React.FC = () => {
         !loading ?
         <IonContent fullscreen>
           {comps.map((comps, index) => (
-            <CompListItem Comp = {comps} key={index}/>
+            <CompListItem LoadComps={LoadCompetitions} Comp = {comps} key={index}/>
           ))}
           <br></br>
           <IonButton onClick={() => {setCompModalOpen(true); }}>Create a Competition</IonButton>
